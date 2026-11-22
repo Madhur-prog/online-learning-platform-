@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 // Layouts
 import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
 import DashboardLayout from './layouts/DashboardLayout';
 
 // Pages
@@ -33,11 +34,15 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public & General Routes with Navbar & Footer */}
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<LandingPage />} />
+          {/* Authentication Routes with Dedicated AuthLayout (No Website Navbar) */}
+          <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+          </Route>
+
+          {/* Public & General Routes with Full Navbar & Footer */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<LandingPage />} />
             <Route path="/courses" element={<CourseCatalog />} />
             <Route path="/courses/:id" element={<CourseDetails />} />
             <Route path="/materials" element={<StudyMaterials />} />
@@ -103,7 +108,7 @@ function App() {
             }
           />
 
-          {/* Student Dashboard Layout */}
+          {/* Student Dashboard Layout with Sidebar */}
           <Route
             element={
               <ProtectedRoute allowedRoles={['student']}>
@@ -115,7 +120,7 @@ function App() {
             <Route path="/my-learning" element={<MyLearning />} />
           </Route>
 
-          {/* Instructor Dashboard Layout */}
+          {/* Instructor Dashboard Layout with Sidebar */}
           <Route
             element={
               <ProtectedRoute allowedRoles={['instructor']}>

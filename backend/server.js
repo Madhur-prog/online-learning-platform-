@@ -59,9 +59,19 @@ const PORT = process.env.PORT || 5000;
 // Connect to DB and start listening if not in test mode
 if (process.env.NODE_ENV !== 'test') {
   connectDB().then(() => {
-    app.listen(PORT, () => {
-      console.log(`[LearnSphere] Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    const server = app.listen(PORT, '0.0.0.0', () => {
+      console.log(`[LearnSphere] Server running in ${process.env.NODE_ENV || 'development'} mode on http://127.0.0.1:${PORT}`);
     });
+
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        console.error(`[LearnSphere] Port ${PORT} is already in use.`);
+      } else {
+        console.error('[LearnSphere] Server error:', err.message);
+      }
+    });
+  }).catch((err) => {
+    console.error('[LearnSphere] Database startup failure:', err.message);
   });
 }
 
