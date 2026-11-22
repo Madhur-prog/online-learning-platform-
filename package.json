@@ -1,0 +1,14 @@
+{
+  "name": "learnsphere",
+  "version": "1.0.0",
+  "description": "LearnSphere - Enterprise-Grade Online Learning Platform",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && npm run seed",
+    "test:backend": "cd backend && npm test",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
