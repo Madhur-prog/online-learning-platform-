@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { getCourseMaterials, getCourses } from '../services/courseService';
-import { FileText, Download, BookOpen, Search, ArrowLeft } from 'lucide-react';
+import { FileText, Download, BookOpen, Search, ArrowLeft, ExternalLink } from 'lucide-react';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const StudyMaterials = () => {
@@ -122,14 +122,25 @@ const StudyMaterials = () => {
                 <span className="text-[11px] text-slate-400">
                   Uploaded {new Date(mat.uploadedAt).toLocaleDateString()}
                 </span>
-                <a
-                  href={`/api/materials/${mat._id}/download`}
-                  download
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-xs"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  Download
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`/api/materials/${mat._id}/view?token=${localStorage.getItem('token') || ''}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    View
+                  </a>
+                  <a
+                    href={`/api/materials/${mat._id}/download?token=${localStorage.getItem('token') || ''}`}
+                    download
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-xs"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    Download
+                  </a>
+                </div>
               </div>
             </div>
           ))}

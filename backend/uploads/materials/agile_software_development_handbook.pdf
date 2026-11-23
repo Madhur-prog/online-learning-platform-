@@ -1,0 +1,158 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2447 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Agile Software Development Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Agile Software Development | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Agile Software Development is an iterative and collaborative approach to project management and software delivery. Codified in) Tj
+0 -12 Td
+(the 2001 Agile Manifesto, it prioritizes working software, customer collaboration, and rapid responsiveness to requirement changes.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Four Agile Manifesto Values: Individuals & interactions over processes; working software over comprehensive documentation;) Tj
+0 -12 Td
+(  customer collaboration over contract negotiation; responding to change over following a plan.) Tj
+0 -12 Td
+(- The Scrum Framework: Roles \(Product Owner, Scrum Master, Developers\), Artifacts \(Product Backlog, Sprint Backlog, Increment\),) Tj
+0 -12 Td
+(  and Ceremonies \(Sprint Planning, Daily Standup, Sprint Review, Sprint Retrospective\).) Tj
+0 -12 Td
+(- User Stories & Sizing: Formatted as "As a <role>, I want <goal>, so that <benefit>" estimated in relative Story Points \(Fibonacci\).) Tj
+0 -12 Td
+(- Managing Requirement Changes: Formal change requests \(CRs\), scope trade-offs, and backlog reprioritization.) Tj
+0 -12 Td
+(- Agile Metrics: Team velocity, burndown charts, cycle time, and Definition of Done \(DoD\).) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(In traditional Waterfall models, changing requirements mid-project incurs heavy financial and timeline penalties. Agile embraces) Tj
+0 -12 Td
+(change through small 2-week iterations. When stakeholders introduce a new priority \(such as a Discussion Forum\), the Product Owner) Tj
+0 -12 Td
+(evaluates effort and adjusts the backlog—deferring lower-priority scope to protect deadlines without burning out developers.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Agile Artifact Example) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(USER STORY US-09: Course Discussion Forum \(5 Story Points | Priority: HIGH\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(Acceptance Criteria: Given an enrolled student, when they post a question,) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(then the thread is saved in MongoDB and displayed with author details.) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1379 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Agile Software Development Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Agile delivers value incrementally through functional, tested software increments at the end of every sprint.) Tj
+0 -12 Td
+(2. Embracing change requires disciplined trade-offs: swap scope in and out rather than extending fixed delivery dates.) Tj
+0 -12 Td
+(3. Story points measure relative effort, complexity, and uncertainty rather than rigid hours.) Tj
+0 -12 Td
+(4. Retrospectives facilitate continuous team improvement by inspecting process friction and executing action items.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. How does the Agile Iron Triangle \(Scope, Cost, Time\) differ from the traditional Waterfall triangle?) Tj
+0 -12 Td
+(Q2. Explain the responsibilities of the Product Owner, Scrum Master, and Development Team during Sprint Planning.) Tj
+0 -12 Td
+(Q3. What is the Definition of Done \(DoD\) and why is it critical for increment quality assurance?) Tj
+0 -12 Td
+(Q4. Outline the exact steps an Agile team follows when a high-priority requirement change is introduced after Sprint 1.) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002766 00000 n 
+0000002912 00000 n 
+0000004343 00000 n 
+0000004413 00000 n 
+0000004488 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4556
+%%EOF

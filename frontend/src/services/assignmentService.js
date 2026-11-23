@@ -11,9 +11,7 @@ export const getAssignmentById = async (assignmentId) => {
 };
 
 export const submitAssignment = async (assignmentId, formData) => {
-  const res = await api.post(`/assignments/${assignmentId}/submit`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  });
+  const res = await api.post(`/assignments/${assignmentId}/submit`, formData);
   return res.data;
 };
 

@@ -1,0 +1,179 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2373 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Python Programming Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Python Programming | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Python is a high-level, interpreted programming language renowned for clear syntax, dynamic typing, and immense versatility.) Tj
+0 -12 Td
+(It is universally adopted in web backends, automation scripts, data analysis, scientific computation, and machine learning.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Dynamic Typing & Memory Management: Everything in Python is an object; memory is managed via reference counting & garbage collection.) Tj
+0 -12 Td
+(- Data Structures: Mutable lists and dictionaries; immutable tuples and unique sets.) Tj
+0 -12 Td
+(- List Comprehensions: Expressive and high-performance inline list transformation syntax.) Tj
+0 -12 Td
+(- Object-Oriented Programming: Classes, constructors \(__init__\), instance methods, inheritance, and encapsulation.) Tj
+0 -12 Td
+(- Exception Handling: Robust error containment using try, except, else, and finally blocks.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Python features an intuitive indentation-based syntax. Variable bindings reference heap-allocated objects. List comprehensions) Tj
+0 -12 Td
+(provide syntactic clarity and bytecode performance gains compared to manual for-loop iteration. Python supports multiple) Tj
+0 -12 Td
+(programming paradigms including object-oriented, procedural, and functional programming constructs.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(class Student:) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    def __init__\(self, name, score\):) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(        self.name = name) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(        self.score = score) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    def is_passing\(self, threshold=60\):) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(        return self.score >= threshold) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(students = [Student\("Alex", 85\), Student\("Priya", 92\)]) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(passing = [s.name for s in students if s.is_passing\(\)]) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1303 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Python Programming Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Write Pythonic code by adhering to PEP 8 style guides and using idiomatic comprehensions.) Tj
+0 -12 Td
+(2. Choose appropriate data structures: dictionaries for O\(1\) key lookups, tuples for immutable record integrity.) Tj
+0 -12 Td
+(3. Encapsulate business logic into modular functions and object-oriented class hierarchies.) Tj
+0 -12 Td
+(4. Always manage external resources \(like files or database connections\) using context managers \(with statements\).) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. Explain the operational difference between deepcopy\(\) and shallow copy in Python.) Tj
+0 -12 Td
+(Q2. How do Python generators and the yield keyword conserve memory when processing large datasets?) Tj
+0 -12 Td
+(Q3. Write a Python function that accepts a list of integers and returns a dictionary counting the frequency of each item.) Tj
+0 -12 Td
+(Q4. What is the difference between *args and **kwargs in Python function definitions?) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002692 00000 n 
+0000002838 00000 n 
+0000004193 00000 n 
+0000004263 00000 n 
+0000004338 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4406
+%%EOF

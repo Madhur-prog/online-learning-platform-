@@ -15,6 +15,11 @@ const assignmentSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide assignment instructions/description']
   },
+  difficulty: {
+    type: String,
+    enum: ['Beginner', 'Intermediate', 'Advanced'],
+    default: 'Beginner'
+  },
   dueDate: {
     type: Date,
     required: [true, 'Please provide a due date']

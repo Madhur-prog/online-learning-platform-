@@ -14,6 +14,8 @@ const quizRoutes = require('./routes/quizRoutes');
 const assignmentRoutes = require('./routes/assignmentRoutes');
 const submissionRoutes = require('./routes/submissionRoutes');
 const discussionRoutes = require('./routes/discussionRoutes');
+const videoRoutes = require('./routes/videoRoutes');
+const videoController = require('./controllers/videoController');
 
 const app = express();
 
@@ -25,10 +27,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Range']
 }));
 
-// Static uploads folder
+// Dedicated video streaming with RFC 7233 HTTP Range support
+app.get('/uploads/videos/:filename', videoController.streamVideo);
+
+// Static uploads folder for study materials and assignment submissions
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Health check endpoint
@@ -50,6 +55,7 @@ app.use('/api/quizzes', quizRoutes);
 app.use('/api/assignments', assignmentRoutes);
 app.use('/api/submissions', submissionRoutes);
 app.use('/api/discussions', discussionRoutes);
+app.use('/api/videos', videoRoutes);
 
 // Error Handler Middleware
 app.use(errorHandler);

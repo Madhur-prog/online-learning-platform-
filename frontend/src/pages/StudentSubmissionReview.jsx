@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getInstructorCourses, getCourseById } from '../services/courseService';
 import { getAssignmentSubmissions, gradeSubmission } from '../services/assignmentService';
-import { 
-  CheckSquare, 
-  Download, 
-  Award, 
-  Clock, 
-  CheckCircle2, 
-  User, 
+import {
+  CheckSquare,
+  Download,
+  Award,
+  Clock,
+  CheckCircle2,
+  User,
   FileText,
   AlertCircle
 } from 'lucide-react';
@@ -250,7 +250,7 @@ const StudentSubmissionReview = () => {
                             {sub.originalFileName}
                           </span>
                           <a
-                            href={`/api/submissions/${sub._id}/download`}
+                            href={`/api/submissions/${sub._id}/download?token=${localStorage.getItem('token') || ''}`}
                             download
                             className="text-blue-600 hover:text-blue-800 p-1"
                             title="Download file"

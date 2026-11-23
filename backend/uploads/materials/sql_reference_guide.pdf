@@ -1,16 +1,169 @@
 %PDF-1.4
-% LearnSphere SQL and Relational Database Guide
 1 0 obj
-<< /Title (LearnSphere SQL Reference Guide)
-   /Author (Dr. Sarah Jenkins)
-   /Subject (DDL, DML, Indexing, and Normalization)
->>
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2265 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Database Management Systems Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Database Management Systems | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Database Management Systems \(DBMS\) are the technological backbone of modern data persistence. Relational databases structure) Tj
+0 -12 Td
+(information into normalized tables, enforcing referential integrity and supporting complex declarative SQL queries.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Relational Model & Keys: Entity-Relationship models, primary keys, foreign keys, candidate keys, and surrogate keys.) Tj
+0 -12 Td
+(- Relational Algebra: Core relational operations including selection, projection, cartesian product, and natural joins.) Tj
+0 -12 Td
+(- SQL DDL & DML: Schema definitions \(CREATE, ALTER, DROP\) and data manipulation statements \(SELECT, INSERT, UPDATE, DELETE\).) Tj
+0 -12 Td
+(- Database Normalization: Progressing from 1NF \(atomic values\) to 2NF \(no partial dependencies\) to 3NF and BCNF.) Tj
+0 -12 Td
+(- ACID Properties: Atomicity, Consistency, Isolation, and Durability in transaction processing.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Normalization systematically removes insertion, update, and deletion anomalies by analyzing functional dependencies. ACID) Tj
+0 -12 Td
+(guarantees ensure that concurrent database transactions execute reliably without data corruption. B-Tree and hash indexing) Tj
+0 -12 Td
+(drastically accelerate query performance by reducing disk block I/O operations from O\(N\) full scans to O\(log N\) lookups.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(SELECT c.title, COUNT\(e.id\) AS student_count) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(FROM courses c) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(LEFT JOIN enrollments e ON c.id = e.course_id) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(GROUP BY c.id, c.title) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(HAVING COUNT\(e.id\) >= 5) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(ORDER BY student_count DESC;) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1337 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Database Management Systems Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Relational schema design relies on mathematical functional dependencies to prevent data redundancy.) Tj
+0 -12 Td
+(2. Primary keys enforce entity uniqueness; foreign keys guarantee referential integrity across parent-child tables.) Tj
+0 -12 Td
+(3. ACID properties are essential for mission-critical banking, transactional, and educational records.) Tj
+0 -12 Td
+(4. Indexes improve read query throughput but introduce overhead during write \(INSERT/UPDATE/DELETE\) operations.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. Deconstruct a sample unnormalized order invoice table into 1NF, 2NF, and 3NF.) Tj
+0 -12 Td
+(Q2. Contrast the four ANSI SQL transaction isolation levels: Read Uncommitted, Read Committed, Repeatable Read, Serializable.) Tj
+0 -12 Td
+(Q3. What is the operational difference between an INNER JOIN and a FULL OUTER JOIN in SQL?) Tj
+0 -12 Td
+(Q4. Write a SQL query using subqueries or window functions to find the second highest assignment score.) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
 endobj
 xref
-0 1
+0 10
 0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002584 00000 n 
+0000002730 00000 n 
+0000004119 00000 n 
+0000004189 00000 n 
+0000004264 00000 n 
 trailer
-<< /Size 1 >>
+<< /Size 10 /Root 1 0 R >>
 startxref
-120
+4332
 %%EOF

@@ -1,0 +1,169 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2480 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Machine Learning Basics Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Machine Learning Basics | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Machine Learning enables computer systems to learn patterns and decision boundaries directly from empirical data without) Tj
+0 -12 Td
+(being explicitly programmed. It spans supervised learning \(labeled targets\), unsupervised clustering, and reinforcement agents.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Supervised vs Unsupervised Learning: Regression and classification versus clustering \(K-Means\) and dimensionality reduction \(PCA\).) Tj
+0 -12 Td
+(- Linear Regression & Cost Functions: Ordinary Least Squares, Mean Squared Error \(MSE\), and Gradient Descent optimization.) Tj
+0 -12 Td
+(- Logistic Regression: Sigmoid activation function mapping linear combinations into probabilistic [0, 1] classifications.) Tj
+0 -12 Td
+(- Bias-Variance Tradeoff: Underfitting \(high bias, low variance\) versus overfitting \(low bias, high variance\).) Tj
+0 -12 Td
+(- Model Evaluation Metrics: Precision, Recall, F1-Score, ROC-AUC, Confusion Matrix, and K-Fold Cross-Validation.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Supervised models map feature vector X to continuous target Y \(regression\) or categorical class C \(classification\). Optimization) Tj
+0 -12 Td
+(algorithms like Gradient Descent iteratively update model weights by computing loss function gradients. Regularization techniques) Tj
+0 -12 Td
+(\(L1 Lasso, L2 Ridge\) penalize excessive parameter magnitudes, preventing overfitting on training datasets.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(from sklearn.model_selection import train_test_split) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(from sklearn.linear_model import LogisticRegression) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(from sklearn.metrics import classification_report) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(X_train, X_test, y_train, y_test = train_test_split\(X, y, test_size=0.2, random_state=42\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(model = LogisticRegression\(\).fit\(X_train, y_train\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(print\(classification_report\(y_test, model.predict\(X_test\)\)\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1376 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Machine Learning Basics Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Always split datasets into train, validation, and test subsets to guarantee generalizability on unseen data.) Tj
+0 -12 Td
+(2. In imbalanced datasets \(e.g. rare fraud or medical diagnoses\), precision, recall, and F1-Score supersede raw accuracy.) Tj
+0 -12 Td
+(3. Feature scaling \(StandardScaler or MinMaxScaler\) is essential for distance-based and gradient-descent algorithms.) Tj
+0 -12 Td
+(4. Combat overfitting through cross-validation, regularization, and gathering more representative training samples.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. Explain the components of a Confusion Matrix: True Positive, False Positive, True Negative, False Negative.) Tj
+0 -12 Td
+(Q2. What is the fundamental difference between L1 \(Lasso\) and L2 \(Ridge\) regularization?) Tj
+0 -12 Td
+(Q3. Why is Gradient Descent learning rate selection critical to model convergence?) Tj
+0 -12 Td
+(Q4. How does K-Fold Cross-Validation provide a more reliable estimate of model performance than a single train/test split?) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002799 00000 n 
+0000002945 00000 n 
+0000004373 00000 n 
+0000004443 00000 n 
+0000004518 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4586
+%%EOF

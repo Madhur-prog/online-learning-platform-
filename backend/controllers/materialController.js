@@ -102,6 +102,55 @@ exports.uploadMaterial = async (req, res, next) => {
   }
 };
 
+// @desc    View study material inline (PDF)
+// @route   GET /api/materials/:id/view
+// @access  Private (Authenticated users)
+exports.viewMaterial = async (req, res, next) => {
+  try {
+    const material = await StudyMaterial.findById(req.params.id);
+
+    if (!material) {
+      return res.status(404).json({
+        success: false,
+        message: 'Study material not found'
+      });
+    }
+
+    const resolvedPath = path.resolve(material.filePath);
+    const materialsDir = path.resolve(__dirname, '..', 'uploads', 'materials');
+
+    // Prevent directory traversal
+    if (!resolvedPath.startsWith(materialsDir)) {
+      return res.status(403).json({
+        success: false,
+        message: 'Unauthorized file path access'
+      });
+    }
+
+    if (!fs.existsSync(resolvedPath)) {
+      return res.status(404).json({
+        success: false,
+        message: 'File not found on server'
+      });
+    }
+
+    const ext = path.extname(resolvedPath).toLowerCase();
+    const mimeTypes = {
+      '.pdf': 'application/pdf',
+      '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      '.pptx': 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      '.txt': 'text/plain'
+    };
+
+    const contentType = mimeTypes[ext] || 'application/octet-stream';
+    res.setHeader('Content-Type', contentType);
+    res.setHeader('Content-Disposition', `inline; filename="${material.originalFileName || path.basename(resolvedPath)}"`);
+    res.sendFile(resolvedPath);
+  } catch (error) {
+    next(error);
+  }
+};
+
 // @desc    Download study material
 // @route   GET /api/materials/:id/download
 // @access  Private (Authenticated users)
@@ -116,14 +165,25 @@ exports.downloadMaterial = async (req, res, next) => {
       });
     }
 
-    if (!fs.existsSync(material.filePath)) {
+    const resolvedPath = path.resolve(material.filePath);
+    const materialsDir = path.resolve(__dirname, '..', 'uploads', 'materials');
+
+    // Prevent directory traversal
+    if (!resolvedPath.startsWith(materialsDir)) {
+      return res.status(403).json({
+        success: false,
+        message: 'Unauthorized file path access'
+      });
+    }
+
+    if (!fs.existsSync(resolvedPath)) {
       return res.status(404).json({
         success: false,
         message: 'File not found on server'
       });
     }
 
-    res.download(material.filePath, material.originalFileName || path.basename(material.filePath));
+    res.download(resolvedPath, material.originalFileName || path.basename(resolvedPath));
   } catch (error) {
     next(error);
   }
@@ -152,7 +212,7 @@ exports.deleteMaterial = async (req, res, next) => {
     }
 
     if (fs.existsSync(material.filePath)) {
-      fs.unlinkSync(material.filePath);
+      try { fs.unlinkSync(material.filePath); } catch (e) { /* ignore */ }
     }
 
     await StudyMaterial.findByIdAndDelete(req.params.id);

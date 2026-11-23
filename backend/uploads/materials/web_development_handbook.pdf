@@ -1,0 +1,154 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2137 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Web Development Basics Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Web Development Basics | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Web Development Basics establishes the essential building blocks of the World Wide Web: semantic HTML5 markup, responsive) Tj
+0 -12 Td
+(CSS3 styling models \(Flexbox and Grid\), client-server communication protocols, and modern browser document object models.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Semantic HTML5: Using header, nav, main, article, section, and footer elements for accessibility and document structure.) Tj
+0 -12 Td
+(- CSS Box Model: Understanding content, padding, border, and margin dimensions, plus box-sizing: border-box.) Tj
+0 -12 Td
+(- Modern CSS Layouts: Flexbox for one-dimensional alignment and CSS Grid for two-dimensional grid layouts.) Tj
+0 -12 Td
+(- Responsive Design: Media queries, mobile-first responsive design principles, and viewport scaling configuration.) Tj
+0 -12 Td
+(- HTTP Client-Server Model: Request methods \(GET, POST, PUT, DELETE\), status codes \(200, 201, 400, 401, 403, 404, 500\).) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Semantic HTML provides machine-readable meaning to web documents, enhancing screen reader accessibility and search engine) Tj
+0 -12 Td
+(indexing. The CSS Box Model governs spatial calculations: box-sizing: border-box ensures padding and borders are included within) Tj
+0 -12 Td
+(specified width and height attributes. Client-server communications operate over stateless HTTP/HTTPS protocols with JSON payloads.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(<div class="container" style="display: flex; justify-content: space-between; align-items: center;">) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(  <article class="card"><h3>Web Design</h3><p>Semantic layouts</p></article>) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(</div>) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1260 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Web Development Basics Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Semantic markup is the foundation of accessible, search-engine-friendly web documents.) Tj
+0 -12 Td
+(2. Use Flexbox for linear navigational bars and toolbar rows; use CSS Grid for structural multi-column page layouts.) Tj
+0 -12 Td
+(3. Always adopt a mobile-first approach using responsive media queries \(min-width breakpoints\).) Tj
+0 -12 Td
+(4. HTTP status codes communicate client and server outcomes: 2xx success, 4xx client errors, 5xx server issues.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. Describe the difference between block, inline, and inline-block display properties.) Tj
+0 -12 Td
+(Q2. How does the CSS box-sizing: border-box property simplify responsive layout calculations?) Tj
+0 -12 Td
+(Q3. What is the role of the viewport meta tag in mobile browser rendering?) Tj
+0 -12 Td
+(Q4. Write a simple CSS rule to center a card both horizontally and vertically using Flexbox.) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002456 00000 n 
+0000002602 00000 n 
+0000003914 00000 n 
+0000003984 00000 n 
+0000004059 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4127
+%%EOF

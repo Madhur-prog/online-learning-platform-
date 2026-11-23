@@ -48,6 +48,11 @@ const quizSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  difficulty: {
+    type: String,
+    enum: ['Beginner', 'Intermediate', 'Advanced'],
+    default: 'Beginner'
+  },
   passingPercentage: {
     type: Number,
     required: true,

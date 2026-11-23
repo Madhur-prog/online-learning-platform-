@@ -17,20 +17,27 @@ exports.getCourseQuizzes = async (req, res, next) => {
       quizzesQuery = quizzesQuery.select('-questions.correctOptionIndex -questions.explanation');
     }
 
-    const quizzes = await quizzesQuery.sort({ createdAt: -1 });
+    const quizzes = await quizzesQuery.sort({ createdAt: 1 });
 
     // If student, attach attempt information
-    let enrichedQuizzes = quizzes;
+    let enrichedQuizzes = quizzes.map(q => {
+      const totalMarks = (q.questions || []).reduce((sum, item) => sum + (item.marks || 1), 0);
+      return {
+        ...q.toObject(),
+        totalMarks
+      };
+    });
+
     if (req.user && req.user.role === 'student') {
       enrichedQuizzes = await Promise.all(
-        quizzes.map(async (quiz) => {
+        enrichedQuizzes.map(async (quiz) => {
           const attempt = await QuizAttempt.findOne({
             quizId: quiz._id,
             studentId: req.user._id
           }).sort({ submittedAt: -1 });
 
           return {
-            ...quiz.toObject(),
+            ...quiz,
             hasAttempted: !!attempt,
             latestAttempt: attempt || null
           };
@@ -68,28 +75,23 @@ exports.getQuizById = async (req, res, next) => {
       studentId: req.user._id
     }).sort({ submittedAt: -1 });
 
-    // If student has NOT attempted and is not instructor, hide correct answers
-    if (!isInstructor && !attempt) {
-      const sanitizedQuiz = quiz.toObject();
-      sanitizedQuiz.questions = sanitizedQuiz.questions.map(q => ({
+    const quizData = quiz.toObject();
+
+    // If user is a student, hide correct answers and explanations before submission
+    if (!isInstructor) {
+      quizData.questions = quizData.questions.map(q => ({
         _id: q._id,
         questionText: q.questionText,
         options: q.options,
         marks: q.marks
       }));
-
-      return res.status(200).json({
-        success: true,
-        quiz: sanitizedQuiz,
-        hasAttempted: false
-      });
     }
 
     res.status(200).json({
       success: true,
-      quiz,
+      quiz: quizData,
       hasAttempted: !!attempt,
-      attempt
+      attempt: attempt || null
     });
   } catch (error) {
     next(error);

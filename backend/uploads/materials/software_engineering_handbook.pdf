@@ -1,0 +1,159 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2382 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Software Engineering Fundamentals Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Software Engineering Fundamentals | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Software Engineering is the systematic application of engineering principles, disciplined methodologies, and quantifiable techniques) Tj
+0 -12 Td
+(to the development, operation, maintenance, and quality assurance of complex software systems.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Software Development Life Cycle \(SDLC\): Feasibility, requirements, architectural design, coding, testing, and deployment.) Tj
+0 -12 Td
+(- Requirement Engineering: Elicitation, analysis, specification \(SRS documents\), verification, and functional vs non-functional requirements.) Tj
+0 -12 Td
+(- Architectural Design Principles: Modularity, High Cohesion, Low Coupling, Separation of Concerns, and SOLID design patterns.) Tj
+0 -12 Td
+(- Software Testing Methodologies: Unit testing, integration testing, system testing, regression testing, and black-box/white-box methods.) Tj
+0 -12 Td
+(- Software Maintenance: Corrective bug fixing, adaptive environmental updates, perfective performance enhancements, and preventive refactoring.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Rigorous software engineering prevents architectural debt and project failure. High cohesion ensures that classes or modules) Tj
+0 -12 Td
+(focus on a single well-defined responsibility; low coupling minimizes inter-module dependencies, making software adaptable to change.) Tj
+0 -12 Td
+(Testing establishes verifiable quality assurance through automated unit tests, continuous integration, and regression suites.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Architecture Example) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(// SOLID: Single Responsibility Principle \(SRP\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(class UserAuthenticator { public Token authenticate\(User user\) { ... } }) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(class PasswordHasher { public String hash\(String rawPassword\) { ... } }) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(class AuditLogger { public void logLoginEvent\(String userId\) { ... } }) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1396 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Software Engineering Fundamentals Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Clear, unambiguous requirements gathered in an SRS document prevent expensive downstream rework.) Tj
+0 -12 Td
+(2. Architectural modularity \(high cohesion and loose coupling\) is the hallmark of maintainable enterprise software.) Tj
+0 -12 Td
+(3. Automated testing must accompany every layer of development: unit tests for logic, integration tests for APIs.) Tj
+0 -12 Td
+(4. Refactoring continuously improves internal code structure without changing external system behavior.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. Differentiate between functional requirements and non-functional requirements with examples from an LMS platform.) Tj
+0 -12 Td
+(Q2. Explain each of the five SOLID design principles and why they promote extensible software architecture.) Tj
+0 -12 Td
+(Q3. What is the difference between verification \("Are we building the product right?"\) and validation \("Are we building the right product?"\)?) Tj
+0 -12 Td
+(Q4. How does technical debt accumulate, and what engineering practices mitigate it?) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002701 00000 n 
+0000002847 00000 n 
+0000004295 00000 n 
+0000004365 00000 n 
+0000004440 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4508
+%%EOF

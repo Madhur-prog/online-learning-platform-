@@ -218,10 +218,12 @@ exports.getStudentSubmissionStatus = async (req, res, next) => {
     res.status(200).json({
       success: true,
       assignment: {
+        _id: assignment._id,
         id: assignment._id,
         title: assignment.title,
         dueDate: assignment.dueDate,
-        maxMarks: assignment.maxMarks
+        maxMarks: assignment.maxMarks,
+        courseId: assignment.courseId
       },
       submission: submission || null,
       status: submission ? submission.status : 'Not Submitted'
@@ -355,14 +357,25 @@ exports.downloadSubmissionFile = async (req, res, next) => {
       });
     }
 
-    if (!fs.existsSync(submission.filePath)) {
+    const resolvedPath = path.resolve(submission.filePath);
+    const assignmentsDir = path.resolve(__dirname, '..', 'uploads', 'assignments');
+
+    // Prevent directory traversal
+    if (!resolvedPath.startsWith(assignmentsDir)) {
+      return res.status(403).json({
+        success: false,
+        message: 'Unauthorized file path access'
+      });
+    }
+
+    if (!fs.existsSync(resolvedPath)) {
       return res.status(404).json({
         success: false,
         message: 'File not found on server'
       });
     }
 
-    res.download(submission.filePath, submission.originalFileName || path.basename(submission.filePath));
+    res.download(resolvedPath, submission.originalFileName || path.basename(resolvedPath));
   } catch (error) {
     next(error);
   }

@@ -3,6 +3,7 @@ const Lesson = require('../models/Lesson');
 const Enrollment = require('../models/Enrollment');
 const StudyMaterial = require('../models/StudyMaterial');
 const Quiz = require('../models/Quiz');
+const QuizAttempt = require('../models/QuizAttempt');
 const Assignment = require('../models/Assignment');
 const Submission = require('../models/Submission');
 
@@ -69,8 +70,10 @@ exports.getCourseById = async (req, res, next) => {
 
     const lessons = await Lesson.find({ courseId: course._id }).sort({ order: 1 });
     const materials = await StudyMaterial.find({ courseId: course._id });
-    const quizzes = await Quiz.find({ courseId: course._id }).select('-questions.correctOptionIndex');
-    const assignments = await Assignment.find({ courseId: course._id });
+    let quizzes = await Quiz.find({ courseId: course._id })
+      .select('-questions.correctOptionIndex -questions.explanation')
+      .sort({ createdAt: 1 });
+    let assignments = await Assignment.find({ courseId: course._id }).sort({ dueDate: 1 });
     const enrolledCount = await Enrollment.countDocuments({ courseId: course._id });
 
     let isEnrolled = false;
@@ -84,6 +87,51 @@ exports.getCourseById = async (req, res, next) => {
       if (enrollmentData) {
         isEnrolled = true;
       }
+
+      if (req.user.role === 'student') {
+        quizzes = await Promise.all(
+          quizzes.map(async (quiz) => {
+            const attempt = await QuizAttempt.findOne({
+              quizId: quiz._id,
+              studentId: req.user._id
+            }).sort({ submittedAt: -1 });
+
+            const totalMarks = (quiz.questions || []).reduce((sum, q) => sum + (q.marks || 1), 0);
+
+            return {
+              ...quiz.toObject(),
+              totalMarks,
+              hasAttempted: !!attempt,
+              latestAttempt: attempt || null
+            };
+          })
+        );
+
+        assignments = await Promise.all(
+          assignments.map(async (assign) => {
+            const submission = await Submission.findOne({
+              assignmentId: assign._id,
+              studentId: req.user._id
+            });
+
+            return {
+              ...assign.toObject(),
+              submission: submission || null,
+              status: submission ? submission.status : 'Not Submitted'
+            };
+          })
+        );
+      } else {
+        quizzes = quizzes.map(quiz => ({
+          ...quiz.toObject(),
+          totalMarks: (quiz.questions || []).reduce((sum, q) => sum + (q.marks || 1), 0)
+        }));
+      }
+    } else {
+      quizzes = quizzes.map(quiz => ({
+        ...quiz.toObject(),
+        totalMarks: (quiz.questions || []).reduce((sum, q) => sum + (q.marks || 1), 0)
+      }));
     }
 
     res.status(200).json({

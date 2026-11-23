@@ -1,0 +1,164 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2240 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - MongoDB Fundamentals Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: MongoDB Fundamentals | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(MongoDB is the leading NoSQL document-oriented database system designed for agility, horizontal scalability, and developer) Tj
+0 -12 Td
+(productivity. It stores semi-structured data in BSON format, offering flexible schemas and powerful expressive query capabilities.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Document Data Model: JSON/BSON records containing polymorphic key-value pairs, nested subdocuments, and arrays.) Tj
+0 -12 Td
+(- Data Modeling Strategies: Embedding documents \(one-to-few\) versus referencing ObjectIds \(one-to-many/many-to-many\).) Tj
+0 -12 Td
+(- CRUD Operations: createIndex, find, insertOne, updateMany, and deleteOne commands with atomic update operators \($set, $push\).) Tj
+0 -12 Td
+(- Aggregation Framework: Pipeline stages including $match, $group, $lookup \(left joins\), $project, $sort, and $unwind.) Tj
+0 -12 Td
+(- Indexing & Sharding: Single field, compound, text, and TTL indexes; horizontal scaling via sharded cluster partitions.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Unlike rigid relational tabular models, MongoDB allows each document in a collection to maintain dynamic fields. BSON provides) Tj
+0 -12 Td
+(efficient binary representation supporting rich data types like Date, ObjectId, and 64-bit integers. The Aggregation Pipeline) Tj
+0 -12 Td
+(processes document streams sequentially, providing map-reduce capabilities with compiled C++ database engine performance.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(db.enrollments.aggregate\([) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(  { $match: { progress: { $gt: 50 } } },) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(  { $group: { _id: "$courseId", activeStudents: { $sum: 1 } } },) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(  { $sort: { activeStudents: -1 } }) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(]\);) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1388 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - MongoDB Fundamentals Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Model data according to application access patterns: data accessed together should generally be stored together.) Tj
+0 -12 Td
+(2. Use embedding for bounded subdocuments \(e.g. quiz question options\); use referencing for unbounded growing relationships.) Tj
+0 -12 Td
+(3. Compound index key order matters: follow the Equality, Sort, Range \(ESR\) guideline for optimal index utilization.) Tj
+0 -12 Td
+(4. The Aggregation Pipeline provides powerful multi-stage data transformation without client-side computational overhead.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. Contrast the advantages and drawbacks of document embedding versus document referencing in MongoDB.) Tj
+0 -12 Td
+(Q2. How does the $lookup aggregation stage mimic an SQL left outer join across disparate collections?) Tj
+0 -12 Td
+(Q3. Write a MongoDB update command using arrayFilters to modify a specific element within a nested array.) Tj
+0 -12 Td
+(Q4. What is the role of the WiredTiger storage engine in document-level concurrency and compression?) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002559 00000 n 
+0000002705 00000 n 
+0000004145 00000 n 
+0000004215 00000 n 
+0000004290 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4358
+%%EOF

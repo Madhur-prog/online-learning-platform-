@@ -1,0 +1,159 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2206 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Introduction to Data Science Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Introduction to Data Science | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Data Science is an interdisciplinary field combining statistics, computational mathematics, and domain expertise to extract) Tj
+0 -12 Td
+(actionable insights and empirical patterns from structured, semi-structured, and unstructured data streams.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- The Data Science Lifecycle: Problem formulation, data acquisition, cleaning/wrangling, EDA, modeling, and communication.) Tj
+0 -12 Td
+(- Data Wrangling with Pandas: Handling null values, reshaping DataFrames, type casting, merging, and grouping.) Tj
+0 -12 Td
+(- Exploratory Data Analysis \(EDA\): Summary statistics, identifying distributions, skewness, outliers, and correlations.) Tj
+0 -12 Td
+(- Statistical Foundations: Mean, median, variance, standard deviation, hypothesis testing \(p-values\), and confidence intervals.) Tj
+0 -12 Td
+(- Visual Communication: Designing charts with Matplotlib & Seaborn to convey empirical conclusions accurately.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Real-world raw data is inherently noisy and incomplete. Data cleaning and imputation often occupy 70-80% of project time.) Tj
+0 -12 Td
+(EDA utilizes visual diagnostics \(histograms, box plots, scatter matrices\) to identify latent patterns and multicollinearity) Tj
+0 -12 Td
+(before selecting statistical or predictive models. Parametric tests require normality, whereas non-parametric tests offer robustness.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(import pandas as pd) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(df = pd.read_csv\("student_evaluations.csv"\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(cleaned = df.dropna\(subset=["score"]\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(summary = cleaned.groupby\("course_category"\)["score"].agg\(["mean", "std", "count"]\)) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1247 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Introduction to Data Science Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Rigorous data validation and cleaning are prerequisites for valid downstream statistical inferences.) Tj
+0 -12 Td
+(2. Correlation does not imply causation; always inspect data context and confounders.) Tj
+0 -12 Td
+(3. Choose the median over the mean when dealing with skewed data containing significant outliers.) Tj
+0 -12 Td
+(4. Visualizations must maintain honest scales and clear labels to communicate findings without distortion.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. What is the difference between missing completely at random \(MCAR\) and missing at random \(MAR\)?) Tj
+0 -12 Td
+(Q2. Explain the Central Limit Theorem and its practical relevance to statistical sampling.) Tj
+0 -12 Td
+(Q3. How do you identify outliers using the Interquartile Range \(IQR\) method?) Tj
+0 -12 Td
+(Q4. Write a Pandas snippet to pivot a table and compute category-wise metrics.) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002525 00000 n 
+0000002671 00000 n 
+0000003970 00000 n 
+0000004040 00000 n 
+0000004115 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4183
+%%EOF

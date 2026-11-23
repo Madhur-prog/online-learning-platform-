@@ -14,16 +14,15 @@ const QuizAttempt = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [pastAttempt, setPastAttempt] = useState(null);
 
   useEffect(() => {
     const fetchQuiz = async () => {
       try {
         const data = await getQuizById(id);
         if (data.success) {
-          // If already attempted, redirect directly to results
           if (data.hasAttempted && data.attempt) {
-            navigate(`/quizzes/results/${data.attempt._id}`, { replace: true });
-            return;
+            setPastAttempt(data.attempt);
           }
           setQuiz(data.quiz);
         }
@@ -35,7 +34,7 @@ const QuizAttempt = () => {
     };
 
     fetchQuiz();
-  }, [id, navigate]);
+  }, [id]);
 
   const handleSelectOption = (questionIndex, optionIndex) => {
     setSelectedAnswers(prev => ({
@@ -124,6 +123,20 @@ const QuizAttempt = () => {
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
           {quiz.description || 'Answer the questions below to evaluate your conceptual understanding. Note: individual questions may carry different marks.'}
         </p>
+
+        {pastAttempt && (
+          <div className="mt-4 p-4 rounded-xl bg-blue-50/80 border border-blue-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div className="text-blue-900">
+              You previously completed this quiz on {new Date(pastAttempt.submittedAt).toLocaleDateString()} with a score of <strong>{pastAttempt.score}/{pastAttempt.totalMarks} ({pastAttempt.percentage}%)</strong>. You may retake it below or view your previous evaluation.
+            </div>
+            <Link
+              to={`/quizzes/results/${pastAttempt._id}`}
+              className="shrink-0 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors shadow-2xs"
+            >
+              View Previous Result
+            </Link>
+          </div>
+        )}
       </div>
 
       {error && <Alert type="error" message={error} onClose={() => setError('')} />}
@@ -156,7 +169,6 @@ const QuizAttempt = () => {
                   return (
                     <label
                       key={optIndex}
-                      onClick={() => handleSelectOption(qIndex, optIndex)}
                       className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer text-xs font-semibold transition-all ${
                         isChecked
                           ? 'border-blue-600 bg-blue-50/70 text-blue-900 ring-1 ring-blue-600 shadow-xs'

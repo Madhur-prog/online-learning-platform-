@@ -14,7 +14,8 @@ import {
   Download,
   AlertCircle,
   Calendar,
-  Send
+  Send,
+  ExternalLink
 } from 'lucide-react';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Alert from '../components/Alert';
@@ -346,14 +347,25 @@ const CourseDetails = () => {
                     </div>
 
                     {isEnrolled || isCourseInstructor ? (
-                      <a
-                        href={`/api/materials/${mat._id}/download`}
-                        download
-                        className="p-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
-                        title="Download file"
-                      >
-                        <Download className="w-5 h-5" />
-                      </a>
+                      <div className="flex items-center gap-1.5">
+                        <a
+                          href={`/api/materials/${mat._id}/view?token=${localStorage.getItem('token') || ''}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors"
+                          title="View PDF Material"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                        <a
+                          href={`/api/materials/${mat._id}/download?token=${localStorage.getItem('token') || ''}`}
+                          download
+                          className="p-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
+                          title="Download file"
+                        >
+                          <Download className="w-4 h-4" />
+                        </a>
+                      </div>
                     ) : (
                       <span className="text-xs text-slate-400 italic">Enroll to download</span>
                     )}
@@ -369,46 +381,98 @@ const CourseDetails = () => {
         {/* Tab 3: Quizzes */}
         {activeTab === 'quizzes' && (
           <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900">Course Quizzes & Assessments</h3>
-            <p className="text-xs text-slate-500">
-              Test your grasp of lecture concepts. Scores are automatically calculated by the backend system.
-            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">Course Quizzes & Assessments</h3>
+                <p className="text-xs text-slate-500">
+                  Complete all 3 structured quizzes to validate your understanding from fundamentals to advanced concepts.
+                </p>
+              </div>
+              <span className="text-xs font-semibold px-2.5 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-200">
+                {course.quizzes?.length || 0} Quizzes Available
+              </span>
+            </div>
 
             {course.quizzes && course.quizzes.length > 0 ? (
-              <div className="space-y-3 pt-2">
-                {course.quizzes.map((quiz) => (
-                  <div
-                    key={quiz._id}
-                    className="p-4 rounded-xl border border-slate-200 flex items-center justify-between hover:bg-slate-50 transition-colors"
-                  >
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{quiz.title}</h4>
-                      <p className="text-xs text-slate-500 mt-0.5">{quiz.description}</p>
-                      <div className="flex gap-4 mt-2 text-xs text-slate-500">
-                        <span>{quiz.questions?.length || 0} Questions</span>
-                        <span>Passing: {quiz.passingPercentage}%</span>
+              <div className="space-y-4 pt-2">
+                {course.quizzes.map((quiz, idx) => {
+                  const difficultyColor = 
+                    quiz.difficulty === 'Beginner' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                    quiz.difficulty === 'Intermediate' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                    'bg-purple-50 text-purple-700 border-purple-200';
+
+                  const totalMarks = quiz.totalMarks || (quiz.questions?.length || 0) * 2;
+
+                  return (
+                    <div
+                      key={quiz._id}
+                      className="p-5 rounded-xl border border-slate-200 hover:border-slate-300 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50/60 transition-all"
+                    >
+                      <div className="space-y-1.5 flex-1">
+                        <div className="flex items-center gap-2.5 flex-wrap">
+                          <span className="text-xs font-bold text-slate-400">Quiz #{idx + 1}</span>
+                          <h4 className="text-sm font-bold text-slate-900">{quiz.title}</h4>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${difficultyColor}`}>
+                            {quiz.difficulty || 'Beginner'}
+                          </span>
+                          {quiz.hasAttempted ? (
+                            quiz.latestAttempt?.passed ? (
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                Passed ({quiz.latestAttempt.percentage}%)
+                              </span>
+                            ) : (
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
+                                Attempted ({quiz.latestAttempt?.percentage || 0}%)
+                              </span>
+                            )
+                          ) : (
+                            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                              Not Attempted
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="text-xs text-slate-600 line-clamp-2">{quiz.description}</p>
+
+                        <div className="flex items-center gap-4 pt-1 text-xs text-slate-500 font-medium">
+                          <span>{quiz.questions?.length || 0} Questions</span>
+                          <span>Total Marks: {totalMarks}</span>
+                          <span>Passing Score: {quiz.passingPercentage}%</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 self-start md:self-center shrink-0">
+                        {isEnrolled ? (
+                          <>
+                            {quiz.hasAttempted && quiz.latestAttempt && (
+                              <Link
+                                to={`/quizzes/results/${quiz.latestAttempt._id}`}
+                                className="px-3.5 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
+                              >
+                                View Result
+                              </Link>
+                            )}
+                            <Link
+                              to={`/quizzes/${quiz._id}`}
+                              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                            >
+                              {quiz.hasAttempted ? 'Retake Quiz' : 'Start Quiz'}
+                            </Link>
+                          </>
+                        ) : isCourseInstructor ? (
+                          <Link
+                            to={`/instructor/quizzes`}
+                            className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
+                          >
+                            Manage Quizzes
+                          </Link>
+                        ) : (
+                          <span className="text-xs text-slate-400 italic">Enroll to attempt</span>
+                        )}
                       </div>
                     </div>
-
-                    {isEnrolled ? (
-                      <Link
-                        to={`/quizzes/${quiz._id}`}
-                        className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors"
-                      >
-                        Start Quiz
-                      </Link>
-                    ) : isCourseInstructor ? (
-                      <Link
-                        to={`/instructor/quizzes`}
-                        className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
-                      >
-                        Manage Quizzes
-                      </Link>
-                    ) : (
-                      <span className="text-xs text-slate-400 italic">Enroll to attempt</span>
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <p className="text-xs text-slate-500">No quizzes posted for this course yet.</p>
@@ -419,39 +483,106 @@ const CourseDetails = () => {
         {/* Tab 4: Assignments */}
         {activeTab === 'assignments' && (
           <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900">Course Assignments</h3>
-            <p className="text-xs text-slate-500">
-              Submit hands-on assignments in PDF or DOCX format for instructor review.
-            </p>
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">Course Assignments</h3>
+                <p className="text-xs text-slate-500">
+                  Complete all 3 hands-on practical assignments (PDF/DOCX) for instructor evaluation and grading.
+                </p>
+              </div>
+              <span className="text-xs font-semibold px-2.5 py-1 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200">
+                {course.assignments?.length || 0} Assignments Available
+              </span>
+            </div>
 
             {course.assignments && course.assignments.length > 0 ? (
-              <div className="space-y-3 pt-2">
-                {course.assignments.map((assign) => (
-                  <div
-                    key={assign._id}
-                    className="p-4 rounded-xl border border-slate-200 flex items-center justify-between hover:bg-slate-50 transition-colors"
-                  >
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{assign.title}</h4>
-                      <p className="text-xs text-slate-500 mt-0.5 line-clamp-1">{assign.description}</p>
-                      <div className="flex gap-4 mt-2 text-xs text-slate-500">
-                        <span>Max Marks: {assign.maxMarks}</span>
-                        <span>Due: {new Date(assign.dueDate).toLocaleDateString()}</span>
+              <div className="space-y-4 pt-2">
+                {course.assignments.map((assign, idx) => {
+                  const difficultyColor = 
+                    assign.difficulty === 'Beginner' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                    assign.difficulty === 'Intermediate' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                    'bg-purple-50 text-purple-700 border-purple-200';
+
+                  const status = assign.status || 'Not Submitted';
+                  const statusColor = 
+                    status === 'Graded' ? 'bg-emerald-100 text-emerald-800 border-emerald-300' :
+                    status === 'Submitted' ? 'bg-blue-100 text-blue-800 border-blue-300' :
+                    status === 'Late' ? 'bg-amber-100 text-amber-800 border-amber-300' :
+                    'bg-slate-100 text-slate-600 border-slate-200';
+
+                  return (
+                    <div
+                      key={assign._id}
+                      className="p-5 rounded-xl border border-slate-200 hover:border-slate-300 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50/60 transition-all"
+                    >
+                      <div className="space-y-1.5 flex-1">
+                        <div className="flex items-center gap-2.5 flex-wrap">
+                          <span className="text-xs font-bold text-slate-400">Assignment #{idx + 1}</span>
+                          <h4 className="text-sm font-bold text-slate-900">{assign.title}</h4>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${difficultyColor}`}>
+                            {assign.difficulty || 'Intermediate'}
+                          </span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${statusColor}`}>
+                            {status}
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-slate-600 line-clamp-2">{assign.description}</p>
+
+                        <div className="flex items-center gap-4 pt-1 text-xs text-slate-500 font-medium">
+                          <span>Max Marks: {assign.maxMarks}</span>
+                          <span>Due Date: {new Date(assign.dueDate).toLocaleDateString()}</span>
+                          <span>Formats: PDF, DOCX</span>
+                        </div>
+
+                        {/* If graded, show marks and feedback */}
+                        {assign.submission && assign.submission.status === 'Graded' && (
+                          <div className="mt-2 p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-xs space-y-1 text-emerald-900">
+                            <div className="font-bold flex items-center gap-2">
+                              <span>Grade Awarded: {assign.submission.marks} / {assign.maxMarks}</span>
+                            </div>
+                            {assign.submission.feedback && (
+                              <p className="text-slate-600 italic">
+                                Instructor Feedback: "{assign.submission.feedback}"
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-2 self-start md:self-center shrink-0">
+                        {isEnrolled ? (
+                          <>
+                            {status !== 'Not Submitted' ? (
+                              <Link
+                                to={`/assignments/${assign._id}/status`}
+                                className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                              >
+                                View Status
+                              </Link>
+                            ) : (
+                              <Link
+                                to={`/assignments/${assign._id}`}
+                                className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-colors"
+                              >
+                                Submit Assignment
+                              </Link>
+                            )}
+                          </>
+                        ) : isCourseInstructor ? (
+                          <Link
+                            to={`/instructor/submissions`}
+                            className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
+                          >
+                            Review Submissions
+                          </Link>
+                        ) : (
+                          <span className="text-xs text-slate-400 italic">Enroll to submit</span>
+                        )}
                       </div>
                     </div>
-
-                    {isEnrolled ? (
-                      <Link
-                        to={`/assignments/${assign._id}`}
-                        className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors"
-                      >
-                        View & Submit
-                      </Link>
-                    ) : (
-                      <span className="text-xs text-slate-400 italic">Enroll to submit</span>
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <p className="text-xs text-slate-500">No assignments created yet for this course.</p>

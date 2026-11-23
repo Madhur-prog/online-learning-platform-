@@ -10,10 +10,22 @@ import {
   FileText, 
   Clock, 
   BookOpen, 
-  ArrowLeft 
+  ArrowLeft,
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Alert from '../components/Alert';
+
+const isYouTubeUrl = (url) => {
+  return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/.test(url || '');
+};
+
+const getYouTubeEmbedUrl = (url) => {
+  if (!url) return '';
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=0&rel=0` : url;
+};
 
 const VideoLessonPlayer = () => {
   const { courseId, lessonId } = useParams();
@@ -25,8 +37,10 @@ const VideoLessonPlayer = () => {
   const [loading, setLoading] = useState(true);
   const [updatingProgress, setUpdatingProgress] = useState(false);
   const [notification, setNotification] = useState(null);
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
+    setVideoError(false);
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -130,18 +144,49 @@ const VideoLessonPlayer = () => {
             />
           )}
 
-          {/* HTML5 Responsive Video Player */}
-          <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-slate-800">
-            <video
-              key={currentLesson.videoUrl}
-              controls
-              autoPlay={false}
-              playsInline
-              className="w-full h-full object-contain"
-              src={currentLesson.videoUrl}
-            >
-              Your browser does not support HTML5 video playback.
-            </video>
+          {/* HTML5 Responsive Video Player or Embedded Player */}
+          <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black shadow-2xl border border-slate-800 relative">
+            {isYouTubeUrl(currentLesson.videoUrl) ? (
+              <iframe
+                key={currentLesson.videoUrl}
+                src={getYouTubeEmbedUrl(currentLesson.videoUrl)}
+                title={currentLesson.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            ) : videoError ? (
+              <div className="w-full h-full flex flex-col items-center justify-center bg-slate-950 p-6 text-center space-y-3">
+                <AlertCircle className="w-10 h-10 text-amber-400" />
+                <h3 className="text-base font-bold text-white">Video Playback Error</h3>
+                <p className="text-xs text-slate-400 max-w-md">
+                  The video stream could not be loaded. Please ensure the demonstration video is accessible.
+                </p>
+                <button
+                  onClick={() => setVideoError(false)}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold"
+                >
+                  Retry Playback
+                </button>
+              </div>
+            ) : (
+              <video
+                key={currentLesson.videoUrl}
+                controls
+                autoPlay={false}
+                preload="metadata"
+                playsInline
+                onCanPlay={() => setVideoError(false)}
+                onError={(e) => {
+                  console.error('HTML5 Video Playback Error on source:', currentLesson.videoUrl, e);
+                  setVideoError(true);
+                }}
+                className="w-full h-full object-contain"
+                src={currentLesson.videoUrl}
+              >
+                Your browser does not support HTML5 video playback.
+              </video>
+            )}
           </div>
 
           {/* Lesson Actions & Meta */}
@@ -197,25 +242,44 @@ const VideoLessonPlayer = () => {
                   Attached Study Material
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {currentLesson.materials.map(mat => (
-                    <a
-                      key={mat._id}
-                      href={`/api/materials/${mat._id}/download`}
-                      download
-                      className="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 flex items-center justify-between text-xs text-slate-200 transition-colors group"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <FileText className="w-4 h-4 text-blue-400" />
-                        <div>
-                          <div className="font-semibold text-white group-hover:text-blue-400 transition-colors">
-                            {mat.title}
+                  {currentLesson.materials.map(mat => {
+                    const token = localStorage.getItem('token') || '';
+                    return (
+                      <div
+                        key={mat._id}
+                        className="p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 flex items-center justify-between text-xs text-slate-200 transition-colors group"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                          <FileText className="w-4 h-4 text-blue-400 shrink-0" />
+                          <div className="min-w-0">
+                            <div className="font-semibold text-white group-hover:text-blue-400 transition-colors truncate">
+                              {mat.title}
+                            </div>
+                            <div className="text-[10px] text-slate-500">{mat.fileType} • {mat.fileSize}</div>
                           </div>
-                          <div className="text-[10px] text-slate-500">{mat.fileType} • {mat.fileSize}</div>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <a
+                            href={`/api/materials/${mat._id}/view?token=${token}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-white transition-colors"
+                            title="View Material in New Tab"
+                          >
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                          <a
+                            href={`/api/materials/${mat._id}/download?token=${token}`}
+                            download
+                            className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+                            title="Download Material"
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                          </a>
                         </div>
                       </div>
-                      <Download className="w-4 h-4 text-slate-400 group-hover:text-white" />
-                    </a>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}

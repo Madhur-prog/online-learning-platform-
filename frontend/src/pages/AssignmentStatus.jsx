@@ -117,7 +117,7 @@ const AssignmentStatus = () => {
                   </div>
 
                   <a
-                    href={`/api/submissions/${submission._id}/download`}
+                    href={`/api/submissions/${submission._id}/download?token=${localStorage.getItem('token') || ''}`}
                     download
                     className="p-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-blue-600 transition-colors shadow-2xs"
                     title="Download submitted copy"

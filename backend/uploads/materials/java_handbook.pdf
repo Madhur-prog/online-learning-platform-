@@ -1,0 +1,184 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2506 >>
+stream
+BT
+/F2 16 Tf
+50 740 Td
+(LearnSphere - Java Programming Handbook) Tj
+/F2 11 Tf
+0 -20 Td
+(Course: Java Programming | Instructor: Dr. Sarah Jenkins) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(1. Topic Introduction) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Java is an enterprise-grade, strongly typed, class-based object-oriented programming language designed for platform independence.) Tj
+0 -12 Td
+(Following the "Write Once, Run Anywhere" \(WORA\) philosophy, Java applications compile into bytecode executed on the JVM.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(2. Important Concepts) Tj
+/F1 9.5 Tf
+0 -14 Td
+(- Java Virtual Machine \(JVM\): Architecture, Bytecode compilation, ClassLoader, and Just-In-Time \(JIT\) compiler.) Tj
+0 -12 Td
+(- OOP Four Pillars: Encapsulation \(access modifiers\), Inheritance \(extends\), Polymorphism \(overriding\), and Abstraction.) Tj
+0 -12 Td
+(- Interfaces vs Abstract Classes: Contractual API design with interface default methods versus base class inheritance.) Tj
+0 -12 Td
+(- Java Collections Framework: List \(ArrayList, LinkedList\), Set \(HashSet, TreeSet\), and Map \(HashMap, TreeMap\).) Tj
+0 -12 Td
+(- Exception Hierarchy: Checked exceptions \(subclasses of Exception\) versus unchecked runtime exceptions.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(3. Detailed Explanations) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Java enforces compile-time type safety. The JVM manages heap memory automatically using generational garbage collection.) Tj
+0 -12 Td
+(Polymorphism is achieved through dynamic method dispatch at runtime. The Collections framework provides standardized data) Tj
+0 -12 Td
+(structures engineered for computational efficiency and thread safety.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(4. Relevant Code Examples) Tj
+/F1 9.5 Tf
+0 -14 Td
+/F3 9 Tf
+0 -12 Td
+(public interface Gradeable {) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    double calculatePercentage\(double maxMarks\);) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(}) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(public class Submission implements Gradeable {) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    private double earnedMarks;) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    public Submission\(double earnedMarks\) { this.earnedMarks = earnedMarks; }) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    @Override) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(    public double calculatePercentage\(double maxMarks\) { return \(earnedMarks / maxMarks\) * 100.0; }) Tj
+/F1 9.5 Tf
+0 -12 Td
+/F3 9 Tf
+0 -12 Td
+(}) Tj
+/F1 9.5 Tf
+0 -12 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 1254 >>
+stream
+BT
+/F2 13 Tf
+50 740 Td
+(LearnSphere - Java Programming Handbook \(Continued\)) Tj
+/F1 10 Tf
+0 -25 Td
+/F2 12 Tf
+0 -16 Td
+(5. Key Takeaways) Tj
+/F1 9.5 Tf
+0 -14 Td
+(1. Java guarantees robust memory safety and cross-platform compatibility through bytecode compilation.) Tj
+0 -12 Td
+(2. Use interfaces to define capability contracts and decouple dependencies; prefer composition over deep inheritance.) Tj
+0 -12 Td
+(3. Leverage generics in the Collections Framework to prevent runtime ClassCastExceptions.) Tj
+0 -12 Td
+(4. Implement try-with-resources \(AutoCloseable\) to eliminate resource leakage for streams, sockets, and connections.) Tj
+0 -12 Td
+0 -7 Td
+/F2 12 Tf
+0 -16 Td
+(6. Practice Questions & Exercises) Tj
+/F1 9.5 Tf
+0 -14 Td
+(Q1. What is the distinction between final, finally, and finalize in Java?) Tj
+0 -12 Td
+(Q2. Explain the difference between HashMap and ConcurrentHashMap in multi-threaded enterprise systems.) Tj
+0 -12 Td
+(Q3. What are Java Generics and how does type erasure operate at compilation time?) Tj
+0 -12 Td
+(Q4. Write a Java class demonstrating method overriding and the super keyword.) Tj
+0 -12 Td
+0 -7 Td
+(Academic Verification Notice: LearnSphere Full-Stack Online Learning Platform - Agile Evaluation 2026.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000267 00000 n 
+0000002825 00000 n 
+0000002971 00000 n 
+0000004277 00000 n 
+0000004347 00000 n 
+0000004422 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+4490
+%%EOF
